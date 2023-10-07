@@ -10,14 +10,17 @@ def create_grid(w, h):
 
     frame = tk.Frame(root)
     frame.grid(row = 4, sticky = "NSEW")
-    
+
+    w = int(w)
+    h = int(h)
     if w <= 0 or h <= 0:
         for widget in root.winfo_children():
             widget.destroy()
         error = tk.Label(root, text = "ERROR: enter positive integers only")
         error.grid(column = 0, row = 0)
         root.after(3000, main())
-
+        return
+        
     for i in range(h):
         row = []
         for j in range(w):
