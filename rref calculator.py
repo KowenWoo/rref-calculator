@@ -1,3 +1,6 @@
+'''
+reduced row echelon calculator
+'''
 import tkinter as tk
 import numpy as np
 from fractions import Fraction
@@ -53,6 +56,12 @@ def submit():
         for j in range(len(result_matrix[0])):
             entries[i][j].delete(0, tk.END)
             entries[i][j].insert(0, str(result_matrix[i][j]))  # Fractions are automatically displayed as fractions
+
+def row_echelon_form(matrix):
+    # Perform Gaussian Elimination to obtain REF
+    ref_matrix = gaussian_elimination(matrix)
+    return ref_matrix
+
 
 def gaussian_elimination(matrix):
     rows, cols = matrix.shape
@@ -136,4 +145,5 @@ def main():
 
     root.mainloop()
 
-main()
+if __name__ == "__main__":
+    main()
